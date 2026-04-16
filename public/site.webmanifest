@@ -1,0 +1,23 @@
+{
+  "name": "Nicolas Traver Portfolio",
+  "short_name": "Nicolas Traver",
+  "description": "Frontend developer, website builder, and SEO-aware digital portfolio.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#10120f",
+  "theme_color": "#10120f"
+}
