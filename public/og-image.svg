@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="signal" x1="120" x2="1080" y1="96" y2="534" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#d8ff55"/>
+      <stop offset=".5" stop-color="#19bda7"/>
+      <stop offset="1" stop-color="#ff6b5f"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="130" x2="1000" y1="112" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".04"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#10120f"/>
+  <path fill="none" stroke="#fff" stroke-opacity=".06" d="M0 105h1200M0 210h1200M0 315h1200M0 420h1200M0 525h1200M150 0v630M300 0v630M450 0v630M600 0v630M750 0v630M900 0v630M1050 0v630"/>
+  <rect x="76" y="74" width="1048" height="482" rx="24" fill="url(#panel)" stroke="#fff" stroke-opacity=".18"/>
+  <path fill="none" stroke="url(#signal)" stroke-width="8" d="M112 152h264l58 78h196l58 78h400" opacity=".88"/>
+  <path fill="none" stroke="url(#signal)" stroke-width="8" d="M112 478h318l54-72h210l54-72h340" opacity=".72"/>
+  <g transform="translate(826 142)">
+    <rect width="210" height="210" rx="34" fill="#10120f" stroke="url(#signal)" stroke-width="10"/>
+    <path fill="none" stroke="#fff" stroke-linecap="square" stroke-width="17" d="M43 148V62l58 86V62"/>
+    <path fill="none" stroke="#d8ff55" stroke-linecap="square" stroke-width="17" d="M121 62h50M146 62v88"/>
+    <path fill="none" stroke="#19bda7" stroke-linecap="square" stroke-width="7" d="M40 176h58"/>
+    <path fill="none" stroke="#ff6b5f" stroke-linecap="square" stroke-width="7" d="M124 176h48"/>
+  </g>
+  <text x="132" y="197" fill="#d8ff55" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900" letter-spacing="0">NICOLAS TRAVER</text>
+  <text x="132" y="298" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="950" letter-spacing="0">Frontend Developer</text>
+  <text x="132" y="375" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="950" letter-spacing="0">Websites &amp; SEO</text>
+  <text x="132" y="447" fill="#cad8d2" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="700" letter-spacing="0">React websites, ecommerce, local SEO, and conversion-focused builds.</text>
+  <g fill="#10120f" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="900">
+    <rect x="132" y="494" width="146" height="42" rx="8" fill="#d8ff55"/>
+    <text x="152" y="522">React</text>
+    <rect x="294" y="494" width="184" height="42" rx="8" fill="#19bda7"/>
+    <text x="314" y="522">Technical SEO</text>
+    <rect x="494" y="494" width="198" height="42" rx="8" fill="#ff6b5f"/>
+    <text x="514" y="522">English + Spanish</text>
+  </g>
+</svg>
