@@ -42,6 +42,7 @@ const portfolioCopy = {
     nav: {
       label: 'Primary navigation',
       work: 'Work',
+      lab: 'Lab',
       profile: 'Profile',
       services: 'Services',
       systems: 'Systems',
@@ -62,6 +63,8 @@ const portfolioCopy = {
       opens: 'Portal opens in',
       enterAria: 'Enter the portfolio now',
       enter: 'Enter the portal',
+      replay: 'Replay intro',
+      replayAria: 'Replay the portfolio intro',
       steps: ['Offer signal locked', 'Speed budget armed', 'Search intent mapped', 'Conversion path online'],
     },
     hero: {
@@ -88,6 +91,7 @@ const portfolioCopy = {
       { value: '03', label: 'Technical SEO systems' },
       { value: '04', label: 'Conversion-led UX' },
     ],
+    tickerLabel: 'High value delivery signals',
     ticker: ['Responsive build', 'Technical SEO', 'Fast storefronts', 'Conversion copy', 'Analytics clarity'],
     selectedWork: [
       {
@@ -101,6 +105,9 @@ const portfolioCopy = {
           'A full digital renovation for custom curtains, blinds, awnings, automation, mosquito screens, and textile decoration in Castellón and Valencia.',
         focus: ['Legacy rebuild', 'Conversion paths', 'Local SEO architecture'],
         result: 'A premium, search-ready website renovation for an established regional business',
+        lensAccent: '#d8ff55',
+        lensSignal: 'Renovation + local SEO',
+        lensDetail: 'Legacy site rebuilt around clearer services, premium trust, and enquiry momentum.',
         caseStudy: {
           intro:
             'Traver needed a full website renovation: replace a long-running legacy site, sharpen the service journey, improve enquiry paths, and build stronger foundations for local Google visibility.',
@@ -136,6 +143,9 @@ const portfolioCopy = {
           'A focused workshop website for mechanical repairs, maintenance, brakes, suspension, electronic diagnosis, location, and WhatsApp-led enquiries.',
         focus: ['Trust-first content', 'Service architecture', 'Maps and FAQ content'],
         result: 'A clean local presence with a fast path from search to contact',
+        lensAccent: '#19bda7',
+        lensSignal: 'Trust + fast contact',
+        lensDetail: 'A direct local workshop presence with service clarity, map context, and WhatsApp-led action.',
         caseStudy: {
           intro:
             'J&J Motors Garage needed a focused, professional web presence where local drivers could quickly understand the workshop, check services, and make contact.',
@@ -169,12 +179,76 @@ const portfolioCopy = {
       viewLive: 'View live site',
       focusLabelSuffix: 'focus areas',
       impact: 'Impact',
+      lensEyebrow: 'Project lens',
+      lensStatus: 'Active signal',
+      lensInstruction: 'Hover, focus, or tap a project to tune the section.',
       openWebsite: 'Open website',
       viewCaseStudy: 'View case study',
       hideCaseStudy: 'Hide case study',
       caseStudy: 'Case study',
       stack: 'Stack',
       visitLive: 'Visit live website',
+    },
+    productLab: {
+      eyebrow: 'Product lab',
+      title: 'Apps, dashboards, and product builds beyond business websites.',
+      text:
+        'A separate space for React builds that show product thinking: QR flows, admin dashboards, Supabase/Stripe foundations, and larger ideas still being shaped.',
+      label: 'Product lab projects',
+      viewProject: 'Open project',
+      pending: 'Deployment pending',
+      statusLabel: 'Status',
+      techLabel: 'Signals',
+      projects: [
+        {
+          id: 'to-talks',
+          title: 'TO Talks Questionnaire',
+          category: 'QR survey tool',
+          status: 'Live conference tool',
+          url: 'https://to-talks-questionnaire.netlify.app',
+          description:
+            'QR-based questionnaire developed for the Santander Technology Department to use during a conference talk, capturing audience views on technology, AI, questions, and feedback in real time.',
+          signals: ['QR access', 'Live survey', 'Audience insight', 'Conference support'],
+          accent: '#d8ff55',
+          command: 'scan -> answer -> discuss',
+        },
+        {
+          id: 'community-events',
+          title: 'Community Events Platform',
+          category: 'Dashboard product build',
+          status: 'Being restored',
+          url: 'https://communityeventsplatform.netlify.app',
+          description:
+            'React + Vite product environment for frontend practice and platform features, including admin and superadmin areas for sales views, daily and weekly reporting, and KPI-style dashboard work.',
+          signals: ['Admin roles', 'KPI views', 'Supabase restore', 'Stripe restore'],
+          accent: '#19bda7',
+          command: 'events -> sales -> kpis',
+        },
+        {
+          id: 'tabfair',
+          title: 'TabFair',
+          category: 'Ride-sharing product',
+          status: 'Flagship build in progress',
+          url: 'https://jade-rolypoly-5d4274.netlify.app',
+          description:
+            'A shared-ride website connecting users travelling to nearby destinations so they can split transport costs and travel together. This is the biggest product build and will become a deeper case study once reactivated.',
+          signals: ['Product logic', 'User matching', 'Travel costs', 'Supabase planning'],
+          accent: '#ff6b5f',
+          command: 'route -> match -> share',
+        },
+        {
+          id: 'movie-finder',
+          title: 'Movie Finder',
+          category: 'Early frontend project',
+          status: 'Deployment pending',
+          url: '',
+          description:
+            'One of the first classic app builds: a movie search experience focused on API handling, search state, UI feedback, and the fundamentals behind interactive frontend work.',
+          signals: ['Search UI', 'API practice', 'State handling', 'Early build'],
+          accent: '#2f77e8',
+          command: 'search -> filter -> discover',
+        },
+      ],
     },
     profile: {
       eyebrow: 'Profile',
@@ -342,6 +416,7 @@ const portfolioCopy = {
     nav: {
       label: 'Navegación principal',
       work: 'Trabajos',
+      lab: 'Lab',
       profile: 'Perfil',
       services: 'Servicios',
       systems: 'Sistemas',
@@ -362,6 +437,8 @@ const portfolioCopy = {
       opens: 'El portal abre en',
       enterAria: 'Entrar al portfolio ahora',
       enter: 'Entrar al portal',
+      replay: 'Repetir intro',
+      replayAria: 'Repetir la intro del portfolio',
       steps: ['Oferta detectada', 'Velocidad preparada', 'Intención SEO mapeada', 'Conversión activada'],
     },
     hero: {
@@ -388,6 +465,7 @@ const portfolioCopy = {
       { value: '03', label: 'Sistemas de SEO técnico' },
       { value: '04', label: 'UX orientada a conversión' },
     ],
+    tickerLabel: 'Señales de entrega de alto valor',
     ticker: ['Diseño responsive', 'SEO técnico', 'Tiendas rápidas', 'Copy de conversión', 'Analítica clara'],
     selectedWork: [
       {
@@ -401,6 +479,9 @@ const portfolioCopy = {
           'Una renovación digital completa para cortinas, estores, toldos, automatización, mosquiteras y decoración textil en Castellón y Valencia.',
         focus: ['Renovación web', 'Rutas de conversión', 'Arquitectura SEO local'],
         result: 'Una renovación premium, preparada para SEO, para una empresa regional consolidada',
+        lensAccent: '#d8ff55',
+        lensSignal: 'Renovación + SEO local',
+        lensDetail: 'Web antigua reconstruida alrededor de servicios más claros, confianza premium y consultas mejor guiadas.',
         caseStudy: {
           intro:
             'Traver necesitaba renovar una web con muchos años de recorrido, mejorar el viaje de servicios, reforzar las vías de contacto y crear mejores bases para la visibilidad local en Google.',
@@ -436,6 +517,9 @@ const portfolioCopy = {
           'Una web enfocada para reparaciones mecánicas, mantenimiento, frenos, suspensión, diagnosis electrónica, ubicación y consultas por WhatsApp.',
         focus: ['Contenido de confianza', 'Arquitectura de servicios', 'Mapa y FAQs'],
         result: 'Una presencia local clara con un camino rápido desde la búsqueda hasta el contacto',
+        lensAccent: '#19bda7',
+        lensSignal: 'Confianza + contacto rápido',
+        lensDetail: 'Una presencia local directa con servicios claros, contexto de mapa y acción enfocada en WhatsApp.',
         caseStudy: {
           intro:
             'J&J Motors Garage necesitaba una presencia web profesional y directa para que conductores locales pudieran entender el taller, revisar servicios y contactar rápido.',
@@ -469,12 +553,76 @@ const portfolioCopy = {
       viewLive: 'Ver web en vivo',
       focusLabelSuffix: 'áreas de enfoque',
       impact: 'Impacto',
+      lensEyebrow: 'Lente del proyecto',
+      lensStatus: 'Señal activa',
+      lensInstruction: 'Pasa el cursor, enfoca o toca un proyecto para ajustar la sección.',
       openWebsite: 'Abrir web',
       viewCaseStudy: 'Ver caso',
       hideCaseStudy: 'Ocultar caso',
       caseStudy: 'Caso de estudio',
       stack: 'Stack',
       visitLive: 'Visitar web en vivo',
+    },
+    productLab: {
+      eyebrow: 'Product lab',
+      title: 'Apps, dashboards y productos más allá de webs de negocio.',
+      text:
+        'Un espacio separado para proyectos React que muestran pensamiento de producto: flujos QR, paneles de administración, bases con Supabase/Stripe e ideas más grandes todavía en evolución.',
+      label: 'Proyectos del product lab',
+      viewProject: 'Abrir proyecto',
+      pending: 'Pendiente de despliegue',
+      statusLabel: 'Estado',
+      techLabel: 'Señales',
+      projects: [
+        {
+          id: 'to-talks',
+          title: 'TO Talks Questionnaire',
+          category: 'Herramienta QR de encuesta',
+          status: 'Herramienta live para conferencia',
+          url: 'https://to-talks-questionnaire.netlify.app',
+          description:
+            'Cuestionario basado en QR desarrollado para Santander Technology Department durante una charla, capturando opiniones sobre tecnología, IA, preguntas y feedback del público en tiempo real.',
+          signals: ['Acceso QR', 'Encuesta live', 'Insight de audiencia', 'Apoyo a conferencia'],
+          accent: '#d8ff55',
+          command: 'scan -> answer -> discuss',
+        },
+        {
+          id: 'community-events',
+          title: 'Community Events Platform',
+          category: 'Producto con dashboard',
+          status: 'En restauración',
+          url: 'https://communityeventsplatform.netlify.app',
+          description:
+            'Entorno React + Vite para práctica frontend y funcionalidades de plataforma, incluyendo áreas admin y superadmin para ventas, reporting diario/semanal y paneles tipo KPI.',
+          signals: ['Roles admin', 'Vistas KPI', 'Restaurando Supabase', 'Restaurando Stripe'],
+          accent: '#19bda7',
+          command: 'events -> sales -> kpis',
+        },
+        {
+          id: 'tabfair',
+          title: 'TabFair',
+          category: 'Producto de viajes compartidos',
+          status: 'Proyecto principal en progreso',
+          url: 'https://jade-rolypoly-5d4274.netlify.app',
+          description:
+            'Web para conectar usuarios que viajan a destinos cercanos, ayudándoles a dividir costes de transporte y viajar juntos. Es el producto más grande y pasará a caso de estudio cuando esté reactivado.',
+          signals: ['Lógica de producto', 'Matching usuarios', 'Costes de viaje', 'Plan Supabase'],
+          accent: '#ff6b5f',
+          command: 'route -> match -> share',
+        },
+        {
+          id: 'movie-finder',
+          title: 'Movie Finder',
+          category: 'Primer proyecto frontend',
+          status: 'Despliegue pendiente',
+          url: '',
+          description:
+            'Uno de los primeros proyectos clásicos: una experiencia de búsqueda de películas enfocada en APIs, estado de búsqueda, feedback de interfaz y fundamentos de frontend interactivo.',
+          signals: ['UI de búsqueda', 'Práctica API', 'Manejo de estado', 'Build inicial'],
+          accent: '#2f77e8',
+          command: 'search -> filter -> discover',
+        },
+      ],
     },
     profile: {
       eyebrow: 'Perfil',
@@ -964,6 +1112,13 @@ function CaseStudyPanel({ labels, order, work }) {
 function App() {
   const [language, setLanguage] = useState(() => {
     try {
+      const params = new URLSearchParams(window.location.search)
+      const requestedLanguage = params.get('lang')
+
+      if (requestedLanguage === 'es' || requestedLanguage === 'en') {
+        return requestedLanguage
+      }
+
       return window.localStorage.getItem('portfolio-language') === 'es' ? 'es' : 'en'
     } catch {
       return 'en'
@@ -971,13 +1126,36 @@ function App() {
   })
   const content = portfolioCopy[language]
   const [activeServiceId, setActiveServiceId] = useState('build')
+  const [activeWorkId, setActiveWorkId] = useState('traver')
   const [activeCaseStudyId, setActiveCaseStudyId] = useState(null)
   const [burst, setBurst] = useState(0)
-  const [isIntroVisible, setIsIntroVisible] = useState(true)
+  const [isIntroVisible, setIsIntroVisible] = useState(() => {
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const introMode = params.get('intro')
+
+      if (introMode === 'hold' || introMode === 'replay') {
+        return true
+      }
+
+      if (introMode === 'skip') {
+        return false
+      }
+
+      return window.localStorage.getItem('portfolio-intro-seen') !== 'true'
+    } catch {
+      return true
+    }
+  })
 
   const activeService = useMemo(
     () => content.services.find((service) => service.id === activeServiceId) ?? content.services[0],
     [activeServiceId, content.services],
+  )
+
+  const activeWork = useMemo(
+    () => content.selectedWork.find((work) => work.id === activeWorkId) ?? content.selectedWork[0],
+    [activeWorkId, content.selectedWork],
   )
 
   useEffect(() => {
@@ -999,6 +1177,18 @@ function App() {
     })
   }, [content.meta])
 
+  useEffect(() => {
+    const targetId = window.location.hash.replace('#', '')
+
+    if (!targetId) {
+      return
+    }
+
+    window.requestAnimationFrame(() => {
+      document.getElementById(targetId)?.scrollIntoView({ block: 'start' })
+    })
+  }, [])
+
   const toggleLanguage = () => {
     setLanguage((currentLanguage) => {
       const nextLanguage = currentLanguage === 'en' ? 'es' : 'en'
@@ -1015,6 +1205,20 @@ function App() {
 
   const triggerBurst = () => {
     setBurst((currentBurst) => currentBurst + 1)
+  }
+
+  const finishIntro = useCallback(() => {
+    try {
+      window.localStorage.setItem('portfolio-intro-seen', 'true')
+    } catch {
+      // The intro still closes if storage is unavailable.
+    }
+
+    setIsIntroVisible(false)
+  }, [])
+
+  const replayIntro = () => {
+    setIsIntroVisible(true)
   }
 
   const handleHeroPointerMove = (event) => {
@@ -1060,12 +1264,13 @@ function App() {
   }
 
   const toggleCaseStudy = (workId) => {
+    setActiveWorkId(workId)
     setActiveCaseStudyId((currentId) => (currentId === workId ? null : workId))
   }
 
   return (
     <>
-      {isIntroVisible && <IntroGate copy={content.intro} onFinish={() => setIsIntroVisible(false)} />}
+      {isIntroVisible && <IntroGate copy={content.intro} onFinish={finishIntro} />}
       <main className="site-shell">
         <SignalCanvas burst={burst} />
         <header className="topbar" aria-label={content.nav.label}>
@@ -1081,6 +1286,7 @@ function App() {
           <div className="topbar-actions">
             <nav className="nav-links">
               <a href="#work">{content.nav.work}</a>
+              <a href="#lab">{content.nav.lab}</a>
               <a href="#profile">{content.nav.profile}</a>
               <a href="#services">{content.nav.services}</a>
               <a href="#systems">{content.nav.systems}</a>
@@ -1096,6 +1302,14 @@ function App() {
             >
               <span className={language === 'en' ? 'is-active' : ''}>EN</span>
               <span className={language === 'es' ? 'is-active' : ''}>ES</span>
+            </button>
+            <button
+              aria-label={content.intro.replayAria}
+              className="intro-replay"
+              type="button"
+              onClick={replayIntro}
+            >
+              {content.intro.replay}
             </button>
           </div>
         </header>
@@ -1190,19 +1404,35 @@ function App() {
           </div>
         </section>
 
-        <section className="ticker-band" aria-label="High value delivery signals">
+        <section className="ticker-band" aria-label={content.tickerLabel}>
           {content.ticker.map((item) => (
             <span key={item}>{item}</span>
           ))}
         </section>
 
-        <section className="work-section" id="work">
+        <section
+          className="work-section"
+          id="work"
+          style={{ '--lens-accent': activeWork.lensAccent }}
+        >
           <div className="section-heading work-heading">
             <div>
               <p className="eyebrow">{content.work.eyebrow}</p>
               <h2>{content.work.title}</h2>
             </div>
             <p>{content.work.text}</p>
+          </div>
+          <div className="project-lens" aria-live="polite">
+            <div>
+              <p>{content.work.lensEyebrow}</p>
+              <h3>{activeWork.title}</h3>
+            </div>
+            <div>
+              <span>{content.work.lensStatus}</span>
+              <strong>{activeWork.lensSignal}</strong>
+              <small>{activeWork.lensDetail}</small>
+            </div>
+            <em>{content.work.lensInstruction}</em>
           </div>
           <div className="work-grid">
             {content.selectedWork.map((work, index) => {
@@ -1211,7 +1441,13 @@ function App() {
 
               return (
                 <Fragment key={work.id}>
-                  <article className="work-card" style={{ '--work-order': index + 1 }}>
+                  <article
+                    className={`work-card ${activeWork.id === work.id ? 'is-lensed' : ''}`}
+                    onClick={() => setActiveWorkId(work.id)}
+                    onFocusCapture={() => setActiveWorkId(work.id)}
+                    onPointerEnter={() => setActiveWorkId(work.id)}
+                    style={{ '--work-accent': work.lensAccent, '--work-order': index + 1 }}
+                  >
                     <a className="work-media" href={work.url} target="_blank" rel="noreferrer">
                       <img src={work.image} alt={work.imageAlt} loading="lazy" />
                       <span>{content.work.viewLive}</span>
@@ -1254,6 +1490,53 @@ function App() {
           </div>
         </section>
 
+        <section className="product-lab-section" id="lab">
+          <div className="section-heading lab-heading">
+            <div>
+              <p className="eyebrow">{content.productLab.eyebrow}</p>
+              <h2>{content.productLab.title}</h2>
+            </div>
+            <p>{content.productLab.text}</p>
+          </div>
+          <div className="product-lab-grid" aria-label={content.productLab.label}>
+            {content.productLab.projects.map((project, index) => (
+              <article
+                className="lab-card"
+                key={project.id}
+                style={{ '--lab-accent': project.accent, '--lab-index': index + 1 }}
+              >
+                <div className="lab-visual" aria-hidden="true">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{project.command}</strong>
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+                <div className="lab-card-content">
+                  <div className="lab-card-kicker">
+                    <span>{project.category}</span>
+                    <strong>{project.status}</strong>
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <div className="lab-signal-list" aria-label={`${project.title} ${content.productLab.techLabel}`}>
+                    {project.signals.map((signal) => (
+                      <span key={signal}>{signal}</span>
+                    ))}
+                  </div>
+                  {project.url ? (
+                    <a className="lab-link" href={project.url} target="_blank" rel="noreferrer">
+                      {content.productLab.viewProject}
+                    </a>
+                  ) : (
+                    <span className="lab-link is-disabled">{content.productLab.pending}</span>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="profile-section" id="profile">
           <div className="profile-copy">
             <p className="eyebrow">{content.profile.eyebrow}</p>
@@ -1292,6 +1575,10 @@ function App() {
                 key={service.id}
                 onFocus={() => setActiveServiceId(service.id)}
                 onKeyDown={(event) => handleServiceKeyDown(event, service.id)}
+                onClick={() => {
+                  setActiveServiceId(service.id)
+                  triggerBurst()
+                }}
                 onPointerEnter={() => setActiveServiceId(service.id)}
                 onPointerLeave={handleMagneticPointerLeave}
                 onPointerMove={handleMagneticPointerMove}
