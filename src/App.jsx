@@ -42,6 +42,9 @@ const portfolioCopy = {
     },
     nav: {
       label: 'Primary navigation',
+      menu: 'Menu',
+      closeMenu: 'Close menu',
+      dismissMenu: 'Close navigation',
       work: 'Work',
       lab: 'Lab',
       profile: 'Profile',
@@ -335,8 +338,7 @@ const portfolioCopy = {
         id: 'build',
         title: 'Build',
         kicker: 'Websites',
-        command: 'site forge',
-        score: '98',
+        command: 'Website delivery',
         mode: 'Conversion shell',
         accent: '#d8ff55',
         text:
@@ -347,8 +349,7 @@ const portfolioCopy = {
         id: 'sell',
         title: 'Sell',
         kicker: 'Ecommerce',
-        command: 'checkout pulse',
-        score: '91',
+        command: 'Commerce journeys',
         mode: 'Storefront engine',
         accent: '#19bda7',
         text:
@@ -359,8 +360,7 @@ const portfolioCopy = {
         id: 'grow',
         title: 'Grow',
         kicker: 'SEO',
-        command: 'search radar',
-        score: '94',
+        command: 'Search systems',
         mode: 'Intent map',
         accent: '#ff6b5f',
         text:
@@ -454,6 +454,9 @@ const portfolioCopy = {
     },
     nav: {
       label: 'Navegación principal',
+      menu: 'Menú',
+      closeMenu: 'Cerrar menú',
+      dismissMenu: 'Cerrar navegación',
       work: 'Trabajos',
       lab: 'Lab',
       profile: 'Perfil',
@@ -746,8 +749,7 @@ const portfolioCopy = {
         id: 'build',
         title: 'Crear',
         kicker: 'Webs',
-        command: 'site forge',
-        score: '98',
+        command: 'Entrega web',
         mode: 'Sistema de conversión',
         accent: '#d8ff55',
         text:
@@ -758,8 +760,7 @@ const portfolioCopy = {
         id: 'sell',
         title: 'Vender',
         kicker: 'Ecommerce',
-        command: 'checkout pulse',
-        score: '91',
+        command: 'Rutas ecommerce',
         mode: 'Motor de tienda',
         accent: '#19bda7',
         text:
@@ -770,8 +771,7 @@ const portfolioCopy = {
         id: 'grow',
         title: 'Crecer',
         kicker: 'SEO',
-        command: 'search radar',
-        score: '94',
+        command: 'Sistemas de búsqueda',
         mode: 'Mapa de intención',
         accent: '#ff6b5f',
         text:
@@ -1150,6 +1150,50 @@ function SignalCanvas({ burst }) {
   return <canvas className="signal-canvas" ref={canvasRef} aria-hidden="true" />
 }
 
+function SignalScore({ label, triggerKey }) {
+  const targetRef = useRef(null)
+  const [score, setScore] = useState(80)
+  const [isPulseActive, setIsPulseActive] = useState(false)
+  useEffect(() => {
+    const target = targetRef.current
+    if (!target) return undefined
+    let animationFrame = 0
+    let hasStarted = false
+    const animate = (startTime) => {
+      if (!hasStarted) return
+      const progress = Math.min((performance.now() - startTime) / 1100, 1)
+      setScore(Math.round(80 + progress * 19))
+      if (progress < 1) animationFrame = window.requestAnimationFrame(() => animate(startTime))
+    }
+    const start = () => {
+      hasStarted = true
+      setIsPulseActive(true)
+      setScore(80)
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setScore(99)
+        return
+      }
+      animationFrame = window.requestAnimationFrame(() => animate(performance.now()))
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      observer.disconnect()
+      start()
+    }, { threshold: 0.45 })
+    observer.observe(target)
+    return () => {
+      observer.disconnect()
+      window.cancelAnimationFrame(animationFrame)
+    }
+  }, [triggerKey])
+  return (
+    <span className={`signal-score ${isPulseActive ? 'is-active' : ''}`} ref={targetRef} aria-label={`${label}: ${score}%`}>
+      <small>{label}</small>
+      <strong>{score}<em>%</em></strong>
+    </span>
+  )
+}
+
 function CaseStudyPanel({ labels, order, work }) {
   return (
     <aside
@@ -1206,6 +1250,25 @@ function App() {
   const [activeWorkId, setActiveWorkId] = useState('traver')
   const [activeCaseStudyId, setActiveCaseStudyId] = useState(null)
   const [burst, setBurst] = useState(0)
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
+  const [isQuickContactOpen, setIsQuickContactOpen] = useState(false)
+  const quickContactRef = useRef(null)
+  const quickContactDragRef = useRef(null)
+  const suppressQuickContactClickRef = useRef(false)
+  const [quickContactPosition, setQuickContactPosition] = useState(() => {
+    try {
+      const savedPosition = window.localStorage.getItem('portfolio-quick-contact-position')
+      const parsedPosition = savedPosition ? JSON.parse(savedPosition) : null
+
+      if (Number.isFinite(parsedPosition?.x) && Number.isFinite(parsedPosition?.y)) {
+        return parsedPosition
+      }
+    } catch {
+      // The button can still be moved when storage is unavailable.
+    }
+
+    return null
+  })
   const [isIntroVisible, setIsIntroVisible] = useState(() => {
     try {
       const params = new URLSearchParams(window.location.search)
@@ -1266,6 +1329,61 @@ function App() {
     })
   }, [])
 
+  useEffect(() => {
+    if (!isMobileNavOpen) {
+      return undefined
+    }
+
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsMobileNavOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', closeOnEscape)
+
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [isMobileNavOpen])
+
+  useEffect(() => {
+    if (!isQuickContactOpen) return undefined
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setIsQuickContactOpen(false)
+    }
+    window.addEventListener("keydown", closeOnEscape)
+    return () => window.removeEventListener("keydown", closeOnEscape)
+  }, [isQuickContactOpen])
+
+  useEffect(() => {
+    if (!quickContactPosition) return undefined
+
+    const keepQuickContactVisible = () => {
+      const container = quickContactRef.current
+      if (!container) return
+
+      const margin = 12
+      const rect = container.getBoundingClientRect()
+      const position = {
+        x: Math.round(Math.min(Math.max(margin, window.innerWidth - rect.width - margin), Math.max(margin, quickContactPosition.x))),
+        y: Math.round(Math.min(Math.max(margin, window.innerHeight - rect.height - margin), Math.max(margin, quickContactPosition.y))),
+      }
+
+      if (position.x === quickContactPosition.x && position.y === quickContactPosition.y) return
+
+      setQuickContactPosition(position)
+
+      try {
+        window.localStorage.setItem("portfolio-quick-contact-position", JSON.stringify(position))
+      } catch {
+        // Keeping the button visible does not rely on storage.
+      }
+    }
+
+    keepQuickContactVisible()
+    window.addEventListener("resize", keepQuickContactVisible)
+    return () => window.removeEventListener("resize", keepQuickContactVisible)
+  }, [quickContactPosition])
+
   const toggleLanguage = () => {
     setLanguage((currentLanguage) => {
       const nextLanguage = currentLanguage === 'en' ? 'es' : 'en'
@@ -1282,6 +1400,92 @@ function App() {
 
   const triggerBurst = () => {
     setBurst((currentBurst) => currentBurst + 1)
+  }
+
+  const closeMobileNavigation = () => {
+    setIsMobileNavOpen(false)
+  }
+
+  const closeQuickContact = () => {
+    setIsQuickContactOpen(false)
+  }
+
+  const persistQuickContactPosition = (position) => {
+    try {
+      window.localStorage.setItem("portfolio-quick-contact-position", JSON.stringify(position))
+    } catch {
+      // The button remains movable when storage is unavailable.
+    }
+  }
+
+  const handleQuickContactPointerDown = (event) => {
+    if (event.pointerType === "mouse" && event.button !== 0) return
+
+    const container = quickContactRef.current
+    if (!container) return
+
+    const rect = container.getBoundingClientRect()
+    event.currentTarget.setPointerCapture?.(event.pointerId)
+    quickContactDragRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      left: rect.left,
+      top: rect.top,
+      width: rect.width,
+      height: rect.height,
+      didMove: false,
+      position: { x: rect.left, y: rect.top },
+    }
+  }
+
+  const handleQuickContactPointerMove = (event) => {
+    const drag = quickContactDragRef.current
+    if (!drag || drag.pointerId !== event.pointerId) return
+
+    const distanceX = event.clientX - drag.startX
+    const distanceY = event.clientY - drag.startY
+    if (!drag.didMove && Math.hypot(distanceX, distanceY) < 6) return
+
+    event.preventDefault()
+    drag.didMove = true
+
+    const margin = 12
+    const maxX = Math.max(margin, window.innerWidth - drag.width - margin)
+    const maxY = Math.max(margin, window.innerHeight - drag.height - margin)
+    const position = {
+      x: Math.round(Math.min(maxX, Math.max(margin, drag.left + distanceX))),
+      y: Math.round(Math.min(maxY, Math.max(margin, drag.top + distanceY))),
+    }
+
+    drag.position = position
+    setQuickContactPosition(position)
+  }
+
+  const finishQuickContactDrag = (event) => {
+    const drag = quickContactDragRef.current
+    if (!drag || drag.pointerId !== event.pointerId) return
+
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId)
+    }
+
+    quickContactDragRef.current = null
+
+    if (!drag.didMove) return
+
+    suppressQuickContactClickRef.current = true
+    persistQuickContactPosition(drag.position)
+  }
+
+  const toggleQuickContact = (event) => {
+    if (suppressQuickContactClickRef.current) {
+      suppressQuickContactClickRef.current = false
+      event.preventDefault()
+      return
+    }
+
+    setIsQuickContactOpen((isOpen) => !isOpen)
   }
 
   const finishIntro = useCallback(() => {
@@ -1350,6 +1554,14 @@ function App() {
       {isIntroVisible && <IntroGate copy={content.intro} onFinish={finishIntro} />}
       <main className="site-shell">
         <SignalCanvas burst={burst} />
+        {isMobileNavOpen && (
+          <button
+            aria-label={content.nav.dismissMenu}
+            className="mobile-menu-backdrop"
+            type="button"
+            onClick={closeMobileNavigation}
+          />
+        )}
         <header className="topbar" aria-label={content.nav.label}>
           <a className="brand" href="#top" aria-label={content.brand.backToTop}>
             <span className="brand-mark" aria-hidden="true">
@@ -1361,33 +1573,50 @@ function App() {
             </span>
           </a>
           <div className="topbar-actions">
-            <nav className="nav-links">
-              <a href="#work">{content.nav.work}</a>
-              <a href="#lab">{content.nav.lab}</a>
-              <a href="#profile">{content.nav.profile}</a>
-              <a href="#services">{content.nav.services}</a>
-              <a href="#systems">{content.nav.systems}</a>
-              <a href="#contact">{content.nav.contact}</a>
-            </nav>
             <button
-              aria-label={content.language.label}
-              aria-pressed={language === 'es'}
-              className="language-toggle"
-              title={content.language.current}
+              aria-controls="primary-navigation"
+              aria-expanded={isMobileNavOpen}
+              aria-label={isMobileNavOpen ? content.nav.closeMenu : content.nav.menu}
+              className={`menu-toggle ${isMobileNavOpen ? 'is-open' : ''}`}
               type="button"
-              onClick={toggleLanguage}
+              onClick={() => setIsMobileNavOpen((isOpen) => !isOpen)}
             >
-              <span className={language === 'en' ? 'is-active' : ''}>EN</span>
-              <span className={language === 'es' ? 'is-active' : ''}>ES</span>
+              <span>{isMobileNavOpen ? content.nav.closeMenu : content.nav.menu}</span>
+              <span className="menu-toggle-icon" aria-hidden="true">
+                <i></i>
+                <i></i>
+                <i></i>
+              </span>
             </button>
-            <button
-              aria-label={content.intro.replayAria}
-              className="intro-replay"
-              type="button"
-              onClick={replayIntro}
-            >
-              {content.intro.replay}
-            </button>
+            <div className={`nav-panel ${isMobileNavOpen ? 'is-open' : ''}`}>
+              <nav className="nav-links" id="primary-navigation">
+                <a href="#work" onClick={closeMobileNavigation}>{content.nav.work}</a>
+                <a href="#lab" onClick={closeMobileNavigation}>{content.nav.lab}</a>
+                <a href="#profile" onClick={closeMobileNavigation}>{content.nav.profile}</a>
+                <a href="#services" onClick={closeMobileNavigation}>{content.nav.services}</a>
+                <a href="#systems" onClick={closeMobileNavigation}>{content.nav.systems}</a>
+                <a href="#contact" onClick={closeMobileNavigation}>{content.nav.contact}</a>
+              </nav>
+              <button
+                aria-label={content.language.label}
+                aria-pressed={language === 'es'}
+                className="language-toggle"
+                title={content.language.current}
+                type="button"
+                onClick={toggleLanguage}
+              >
+                <span className={language === 'en' ? 'is-active' : ''}>EN</span>
+                <span className={language === 'es' ? 'is-active' : ''}>ES</span>
+              </button>
+              <button
+                aria-label={content.intro.replayAria}
+                className="intro-replay"
+                type="button"
+                onClick={replayIntro}
+              >
+                {content.intro.replay}
+              </button>
+            </div>
           </div>
         </header>
 
@@ -1429,11 +1658,10 @@ function App() {
                   <span></span>
                   <span></span>
                   <span></span>
-                  <strong>launchroom.dev</strong>
                 </div>
                 <div className="command-line">
-                  <span>{activeService.command}</span>
-                  <strong>{activeService.score}</strong>
+                  <span>{activeService.kicker}</span>
+                  <SignalScore label={language === 'en' ? 'Launch pulse' : 'Pulso de lanzamiento'} triggerKey={activeService.id} />
                 </div>
                 <div className="dashboard-grid">
                   <div className="live-panel performance-panel">
@@ -1756,6 +1984,35 @@ function App() {
           <a href="#top">{content.footer.backToTop}</a>
         </footer>
       </main>
+      <div
+        className={isQuickContactOpen ? "quick-contact is-open" : "quick-contact"}
+        ref={quickContactRef}
+        style={quickContactPosition ? { left: quickContactPosition.x, top: quickContactPosition.y, right: "auto", bottom: "auto" } : undefined}
+      >
+        <div className="quick-contact-options" id="quick-contact-options" role="group" aria-label={language === "en" ? "Contact options" : "Opciones de contacto"}>
+          {sharedContactLinks.filter((link) => link.id === "email" || link.id === "whatsapp").map((link) => (
+            <a className="quick-contact-option" href={link.href} key={link.id} rel={link.id === "email" ? undefined : "noreferrer"} target={link.id === "email" ? undefined : "_blank"} onClick={closeQuickContact}>
+              <span className="quick-contact-icon" aria-hidden="true">{link.id === "email" ? "✉" : "☎"}</span>
+              <span>{content.contact.linkLabels[link.id]}</span>
+            </a>
+          ))}
+        </div>
+        <button
+          aria-controls="quick-contact-options"
+          aria-expanded={isQuickContactOpen}
+          aria-label={language === "en" ? (isQuickContactOpen ? "Close contact options" : "Open contact options") : (isQuickContactOpen ? "Cerrar opciones de contacto" : "Abrir opciones de contacto")}
+          className="quick-contact-toggle"
+          onClick={toggleQuickContact}
+          onPointerCancel={finishQuickContactDrag}
+          onPointerDown={handleQuickContactPointerDown}
+          onPointerMove={handleQuickContactPointerMove}
+          onPointerUp={finishQuickContactDrag}
+          title={language === "en" ? "Drag to move · Click for contact options" : "Arrastra para mover · Pulsa para ver opciones"}
+          type="button"
+        >
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11.2a7.5 7.5 0 0 1-8 7.3 8.7 8.7 0 0 1-3.6-.8L4 19l1.2-4.1A7.2 7.2 0 0 1 4 11.1 7.5 7.5 0 0 1 12 4a7.5 7.5 0 0 1 8 7.2Z"/><path d="M8.8 10.2h6.5M8.8 13.7h4.1"/></svg>
+        </button>
+      </div>
     </>
   )
 }
