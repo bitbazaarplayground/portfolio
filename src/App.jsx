@@ -3,6 +3,7 @@ import heroLayer from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import jjMotorsPreview from './assets/work-jjmotors-landing.jpg'
+import malinaPreview from './assets/work-malina-landing.png'
 import traverPreview from './assets/work-traver-landing.jpg'
 import './App.css'
 
@@ -73,7 +74,7 @@ const portfolioCopy = {
       lede:
         'A portfolio for employers and business owners who need more than a pretty screen: strategy, speed, trust, and a site that helps people take the next step.',
       primaryCta: 'Start a website brief',
-      secondaryCta: 'Trigger signal burst',
+      secondaryCta: 'View selected work',
       ctaLabel: 'Primary calls to action',
       outcomesLabel: 'Portfolio focus areas',
       visualLabel: 'Modern website delivery cockpit',
@@ -133,6 +134,44 @@ const portfolioCopy = {
         },
       },
       {
+        id: 'malina',
+        title: 'MALINA Patisserie',
+        category: 'Restaurant and patisserie website',
+        url: 'https://malinapatisserie.netlify.app',
+        image: malinaPreview,
+        imageAlt: 'MALINA Patisserie landing page with a dark editorial brunch hero',
+        summary:
+          'A premium hospitality website for a Brentwood patisserie, shaping all-day brunch, coffee, daily desserts, celebration cakes, menu browsing, and visit details into a polished customer journey.',
+        focus: ['Hospitality storytelling', 'Menu and cakes journeys', 'Local SEO structure'],
+        result: 'An editorial restaurant website that makes the brand feel destination-worthy and easy to visit',
+        lensAccent: '#f3c54b',
+        lensSignal: 'Hospitality + menu journeys',
+        lensDetail: 'Brunch, cakes, opening hours, location, and local search signals packaged as a premium patisserie experience.',
+        caseStudy: {
+          intro:
+            'MALINA needed a hospitality website that could feel as memorable as the venue: polished enough for a destination patisserie, practical enough for customers checking menus, cakes, hours, and how to visit.',
+          sections: [
+            {
+              title: 'Brief',
+              text: 'Present a Brentwood patisserie and brunch restaurant as a premium destination while keeping practical actions easy: menu, cakes, visit details, directions, and contact.',
+            },
+            {
+              title: 'What I built',
+              text: 'A responsive React website with an editorial hero, intro moment, full menu route, cakes route, visit section, opening hours, gallery content, and clear customer actions.',
+            },
+            {
+              title: 'SEO & conversion',
+              text: 'Restaurant, cafe, and bakery schema, metadata, local address and opening-hours signals, menu/cake journeys, responsive images, and direct routes to directions, Instagram, phone, WhatsApp, and email.',
+            },
+            {
+              title: 'Public outcome',
+              text: 'The public story is a polished hospitality presence that turns the venue into an online destination and makes the next customer action feel obvious.',
+            },
+          ],
+          stack: ['React', 'Vite', 'Netlify', 'Restaurant schema', 'Responsive images', 'Local SEO'],
+        },
+      },
+      {
         id: 'jjmotors',
         title: 'J&J Motors Garage',
         category: 'Automotive service website',
@@ -173,7 +212,7 @@ const portfolioCopy = {
     ],
     work: {
       eyebrow: 'Selected work',
-      title: 'Real businesses with live websites on real domains.',
+      title: 'Real businesses with live websites people can actually use.',
       text:
         'These come first because they prove the work can leave the build folder and support actual businesses with search, trust, and clear customer action.',
       viewLive: 'View live site',
@@ -447,7 +486,7 @@ const portfolioCopy = {
       lede:
         'Un portfolio para empresas y equipos que necesitan más que una pantalla bonita: estrategia, velocidad, confianza y una web que ayude a dar el siguiente paso.',
       primaryCta: 'Empezar un brief web',
-      secondaryCta: 'Activar señal',
+      secondaryCta: 'Ver trabajos seleccionados',
       ctaLabel: 'Llamadas a la acción principales',
       outcomesLabel: 'Áreas clave del portfolio',
       visualLabel: 'Panel moderno de entrega web',
@@ -507,6 +546,44 @@ const portfolioCopy = {
         },
       },
       {
+        id: 'malina',
+        title: 'MALINA Patisserie',
+        category: 'Web de restaurante y pastelería',
+        url: 'https://malinapatisserie.netlify.app',
+        image: malinaPreview,
+        imageAlt: 'Landing de MALINA Patisserie con hero editorial oscuro sobre brunch',
+        summary:
+          'Una web premium de hostelería para una patisserie en Brentwood, conectando brunch, café, postres diarios, tartas de celebración, menú y visita en una experiencia cuidada.',
+        focus: ['Storytelling hostelero', 'Rutas de menú y tartas', 'Estructura SEO local'],
+        result: 'Una web editorial para restaurante que hace que la marca se sienta destino y sea fácil de visitar',
+        lensAccent: '#f3c54b',
+        lensSignal: 'Hostelería + recorridos de menú',
+        lensDetail: 'Brunch, tartas, horarios, ubicación y señales de búsqueda local presentados como una experiencia premium.',
+        caseStudy: {
+          intro:
+            'MALINA necesitaba una web de hostelería con una presencia tan memorable como el local: cuidada para una patisserie de destino y práctica para revisar menú, tartas, horarios y visita.',
+          sections: [
+            {
+              title: 'Brief',
+              text: 'Presentar una patisserie y restaurante de brunch en Brentwood como destino premium, manteniendo acciones prácticas claras: menú, tartas, visita, dirección y contacto.',
+            },
+            {
+              title: 'Qué construí',
+              text: 'Una web responsive en React con hero editorial, intro visual, ruta de menú completo, ruta de tartas, sección de visita, horarios, galería y acciones claras para clientes.',
+            },
+            {
+              title: 'SEO y conversión',
+              text: 'Schema de restaurante, cafetería y bakery, metadatos, dirección y horarios, recorridos de menú/tartas, imágenes responsive y rutas directas a dirección, Instagram, teléfono, WhatsApp y email.',
+            },
+            {
+              title: 'Resultado público',
+              text: 'La historia pública es una presencia hostelera pulida que convierte el local en un destino online y hace evidente el siguiente paso del cliente.',
+            },
+          ],
+          stack: ['React', 'Vite', 'Netlify', 'Schema restaurante', 'Imágenes responsive', 'SEO local'],
+        },
+      },
+      {
         id: 'jjmotors',
         title: 'J&J Motors Garage',
         category: 'Web de taller mecánico',
@@ -547,7 +624,7 @@ const portfolioCopy = {
     ],
     work: {
       eyebrow: 'Trabajos seleccionados',
-      title: 'Empresas reales con webs activas en dominios reales.',
+      title: 'Empresas reales con webs activas que la gente puede usar.',
       text:
         'Aparecen primero porque demuestran que el trabajo sale del entorno de desarrollo y ayuda a negocios reales con búsqueda, confianza y acción clara del cliente.',
       viewLive: 'Ver web en vivo',
@@ -1328,9 +1405,9 @@ function App() {
               <a className="button button-primary" href="#contact">
                 {content.hero.primaryCta}
               </a>
-              <button className="button button-secondary pulse-trigger" type="button" onClick={triggerBurst}>
+              <a className="button button-secondary pulse-trigger" href="#work">
                 {content.hero.secondaryCta}
-              </button>
+              </a>
             </div>
             <dl className="signal-strip" aria-label={content.hero.outcomesLabel}>
               {content.outcomes.map((item) => (
@@ -1437,7 +1514,8 @@ function App() {
           <div className="work-grid">
             {content.selectedWork.map((work, index) => {
               const isCaseStudyOpen = activeCaseStudyId === work.id
-              const caseStudyOrder = Math.ceil((index + 1) / 2) * 2 + 1
+              const desktopWorkColumns = 3
+              const caseStudyOrder = Math.ceil((index + 1) / desktopWorkColumns) * desktopWorkColumns + 1
 
               return (
                 <Fragment key={work.id}>
